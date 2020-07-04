@@ -22,13 +22,20 @@ h6 {
   font-weight: 700;
 }
 
+.navbar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
   background: url("../images/background.svg") no-repeat center center;
   background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  height: 100vh;
 }
 
 header.masthead .overlay {
@@ -47,8 +54,7 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 6rem;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -125,6 +131,17 @@ header.masthead h1 {
 }
 
 footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.owlmotherfucker {
+  position: relative;
+  width: 75px;
+  left: -15px;
+}
+
+.titletext {
+  letter-spacing: 25px;
+  font-weight: 500
 }

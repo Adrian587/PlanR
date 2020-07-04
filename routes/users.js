@@ -27,6 +27,10 @@ router.post('/hostdata', function(req, res, next) {
   // how do we save data globally in node.js?
 });
 
+router.post("/endpoint", function(req, res, next) {
+  res.send(req.body);
+})
+
 router.post('/surveyData', function(req, res, next) {
   const surveyData = req.body;
   // res.json(req.body); // nothing runs after this line
