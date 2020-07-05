@@ -12,10 +12,10 @@ const fetch = require('node-fetch');
 // - monsiuer fandrew
 // wait sike the Global Aggregator doesn't even work in app.js rip
 class PlaceFinder {
-    API_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
  //  [yourquerystring]&key=[yourkeyhere]"
  //  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=victoria+restaurants&key=AIzaSyDMm7mFoUiBLqbrf4Oo2NTAj7Q3S4yXNF8"
     constructor(aggregator) {
+        this.API_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
         this.queryCity = aggregator.hostData.location; 
         this.lat = aggregator.hostData.latitude;
         this.lng = aggregator.hostData.longitude;
