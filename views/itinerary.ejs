@@ -56,9 +56,17 @@
         initialDate: moment(trip[0].day).valueOf(),
         dayMaxEvents: true, // allow "more" link when too many events
         navLinks: true, // can click day/week names to navigate views
+        eventClick: function(info) {
+          if (info.event.url) {
+            window.open(info.event.url, "_blank");
+            return false;
+          }
+        }
       });
       calendar.render();
       addEvents();
+
+    
     });
   </script>
   <style>
@@ -126,15 +134,21 @@
 
 <body>
   <div id='wrap'>
-
-    <div id='calendar'></div>
+    <h1>PlanR - Your Vacation Itinerary</h1>
+    <h4>No Hassle All fun</h4>
+    <button type="button" class="mb-3 btn btn-primary">Export to Google Calendar or Other App</button>
+    
+    <div style="display:flex">
+      <div id="map"></div>
+      <div id='calendar'></div>
+    </div>
 
     <div style='clear:both'></div>
   </div>
   <!-- Footer -->
   <footer class="footer bg-light">
     <div class="container">
-      <div class="row">
+      <div class="row text-center">
         <p class="text-muted small mb-4 mb-lg-0">&copy;PlanR 2020. Made by Liang Liu, Anindya De, Adrian Lee, Andrew Han, Amogh Joshi. </p>
       </div>
     </div>
@@ -171,7 +185,8 @@
           window.calendar.addEvent({
             title: event.name,
             start: moment(day).add(moment.duration(event.start_time).asHours(), 'hours').valueOf(),
-            end: moment(day).add(moment.duration(event.end_time).asHours(), 'hours').valueOf()
+            end: moment(day).add(moment.duration(event.end_time).asHours(), 'hours').valueOf(),
+            url: `https://www.google.com/maps/search/?api=1&query=search&query_place_id=${event.placeID}`
         })
         }
       }
@@ -207,7 +222,33 @@
 //     }
 //   ]
 // })
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: {
+          lat: -28.643387,
+          lng: 153.612224
+        },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+          position: google.maps.ControlPosition.TOP_CENTER
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: true,
+        streetViewControl: true,
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.LEFT_TOP
+        },
+        fullscreenControl: true
+      });
+    }
   </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMm7mFoUiBLqbrf4Oo2NTAj7Q3S4yXNF8&callback=initMap&libraries=places"></script>
+
 </body>
 
 </html>

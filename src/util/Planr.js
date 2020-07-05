@@ -1,18 +1,19 @@
 const Aggregator = require("./model/Aggregator.js");
 
 class Planr {
-  itineraries = {
-    "ilikecock": new Aggregator(),
-    "test": new Aggregator()
-  }; // dictionary key:value = slug: Aggregator
 
   constructor() {
+    this.itineraries = {
+      "ilikecock": new Aggregator(),
+      "test": new Aggregator()
+    }; // dictionary key:value = slug: Aggregator
+    
     this.getAggregator("test").hostData = {
       "startDate": "07/04/2020",
       "endDate": "07/06/2020",
       "stayLength": 5,
       "groupBudget": 123,
-      "groupSize": 2,
+      "groupSize": 1,
       "latitude": "49.2827291",
       "location": "Vancouver, BC, Canada",
       "longitude": "-123.1207375"

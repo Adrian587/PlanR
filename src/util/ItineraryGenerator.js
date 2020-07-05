@@ -38,7 +38,7 @@ class ItineraryGenerator {
         const msg = {
             to: `${this.aggregator.hostData.email}`,
             from: 'owlplanrinfo@gmail.com',
-            subject: 'OwlPlanr Itinerary Link!',
+            subject: 'PlanR Itinerary Link!',
             text: `Click on the link to find your fully customized travel itinerary! ${this.aggregator.hostData.url}`,
             html: `<p> Click on the link to find your fully customized travel itinerary! ${this.aggregator.url} </p>`
         }
