@@ -14,7 +14,6 @@ sgMail.setApiKey('SG.bluOLEeKQXGNNCBYo0APaA.Ji4tGRU1dJSHOYFLWftXCi-0eT1FS2_FIeMu
 //  * */ 
 // var Dict = require("collections/dict");
 class Aggregator {
-    itinerary = null;
     
     // hostData :
     // {
@@ -29,6 +28,7 @@ class Aggregator {
         //     activities: ["landmark", "swim"]
         // }
     constructor() {
+        this.itinerary = null;
         this.hostData = {}; 
         this.location = this.hostData.location; 
         this.surveyData = [];  
