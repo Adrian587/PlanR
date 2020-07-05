@@ -15,12 +15,12 @@ sgMail.setApiKey('SG.bluOLEeKQXGNNCBYo0APaA.Ji4tGRU1dJSHOYFLWftXCi-0eT1FS2_FIeMu
  * 
  * */ 
 class ItineraryGenerator {
-    aggregator;
-    currentPlaceID;
-    trip = [];  
-    count = 0; 
 
     constructor(aggregator) {
+        this.aggregator;
+        this.currentPlaceID;
+        this.trip = [];  
+        this.count = 0; 
         this.aggregator = aggregator; 
         this.startDate = m(aggregator.hostData.startDate); 
         this.endDate = m(aggregator.hostData.endDate); 

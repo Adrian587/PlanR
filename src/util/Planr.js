@@ -7,7 +7,7 @@ class Planr {
       "ilikecock": new Aggregator(),
       "test": new Aggregator()
     }; // dictionary key:value = slug: Aggregator
-    
+
     this.getAggregator("test").hostData = {
       "startDate": "07/04/2020",
       "endDate": "07/06/2020",
