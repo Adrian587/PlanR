@@ -46,8 +46,7 @@ Waits for the host to end, then group portion starts
     - Pho
     - Ramen
     - Other (input box)
-- What activities are you most interested in doing? Want it balanced/focused on something? [select all that apply]
-    - Landmarks
+- What activities are you most interested in doing? Want it balanced/focused on something? [select all that apply]    - Landmarks
     - Amusement parks
     - Water parks
     - Museums
@@ -56,7 +55,8 @@ Waits for the host to end, then group portion starts
     - Sports
     - Hiking
     - Night Life
-    - Others (input box)
+    - Hiking
+    - Other (input box)
 
 ## Tasks
 

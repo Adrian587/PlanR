@@ -2,12 +2,12 @@ var base_color = "white";
 var active_color = "rgb(237, 40, 70)";
 
 var child = 1;
-var length = $("section").length - 1;
-$("#prev").addClass("disabled");
-$("#submit").addClass("disabled");
+var length = $(".form section").length - 1;
+$("#prev").hide();
+$("#submit").hide();
 
-$("section").not("section:nth-of-type(1)").hide();
-$("section").not("section:nth-of-type(1)").css('transform','translateX(100px)');
+$(".form section").not("section:nth-of-type(1)").hide();
+$(".form section").not("section:nth-of-type(1)").css('transform','translateX(100px)');
 
 var svgWidth = length * 200 + 24;
 $("#svg_wrap").html(
@@ -48,29 +48,149 @@ document.getElementById("svg_form_time").appendChild(circle);
 
 $("circle:nth-of-type(1)").css("fill", active_color);
 
-$(".button").click(function () {
+$(".form .button").click(function () {
   $("#svg_form_time rect").css("fill", active_color);
   $("#svg_form_time circle").css("fill", active_color);
   var id = $(this).attr("id");
   if (id == "next") {
-    $("#prev").removeClass("disabled");
-    if (child >= length) {
-      $(this).addClass("disabled");
-      $('#submit').removeClass("disabled");
+    $("#prev").show();
+
+    if(child == length-1) {
+      $("#next").hide();
+      $("#submit").show();
     }
+
     if (child <= length) {
       child++;
     }
   } else if (id == "prev") {
-    $("#next").removeClass("disabled");
-    $('#submit').addClass("disabled");
-    if (child <= 2) {
-      $(this).addClass("disabled");
-    }
-    if (child > 1) {
+    $("#next").show();
+    if (child > 1){
       child--;
     }
+
+    if(child == 1) {
+      $("#prev").hide();
+    }
+
+    if (child == length-1) {
+      $("#submit").hide();
+      $("#next").show();
+    }
+  } 
+  showNew();
+});
+
+let submitted = 0;
+
+$(".form #submit").click(function () {
+  if(submitted) return;
+  submitted = 1;
+
+  if(window.location.pathname.includes("survey")) {
+    surveyFormSubmit();
+  } else {
+    hostFormSubmit();
   }
+
+  $("#prev").hide();
+  $("#submit").hide();
+});
+
+function surveyFormSubmit() {
+  let restaurants = [];
+  let activities = [];
+  let dietaryRestrictions = [];
+
+  $(".food :checkbox").each((i, element) => {
+    if(element.checked) {
+      restaurants.push(element.id);
+    }
+  });
+
+  if ($("#otherRestrictions").val()) {
+    dietaryRestrictions.push($("#otherRestrictions").val())
+  }
+
+  $(".restrictions :checkbox").each((i, element) => {
+    if(element.checked) {
+      dietaryRestrictions.push(element.id);
+    }
+  });
+
+  if ($("#otherPreferances").val()) {
+    restaurants.push($("#otherPreferances").val())
+  }
+
+  $(".activities :checkbox").each((i, element) => {
+    if(element.checked) {
+      activities.push(element.id);
+    }
+  });
+
+  if ($("#otherToDos").val()) {
+    activities.push($("#otherToDos").val())
+  }
+
+  let sendData = {
+    "age": parseInt($("#ageSelector").val()),
+    "dietaryRestrictions": dietaryRestrictions,
+    "restaurants": restaurants,
+    "activities": activities
+  }
+
+  console.log(sendData);
+
+  $.post(`/api/${slug}/surveydata`, sendData)
+    .done(function(data) {
+      let slug = data.slug;
+      $("#link").text(`${window.location.origin}/${slug}/survey`);
+      $("#link").attr("href", `${window.location.origin}/${slug}/survey`);
+
+      $("#svg_form_time rect").css("fill", active_color);
+      $("#svg_form_time circle").css("fill", active_color);
+      child++;
+      showNew();
+  })
+}
+
+function hostFormSubmit() {
+  let dates = $("#daterange").val();
+  dates = dates === undefined ? "-" : dates;
+
+  dates = dates.split("-");
+  let startDate = dates[0];
+  let endDate = dates[1];
+  let stayLength = moment.duration(moment(dates[1]).diff(moment(dates[0]))).asDays() + 1;
+  
+  let sendData = {
+    email: $("#email").val(),
+    startDate,
+    endDate,
+    stayLength: parseInt(stayLength),
+    groupBudget: parseInt($("#groupBudget").val()),
+    location: $("#location").val(),
+    groupSize: $("#groupSize").val(),
+    latitude: $("#cityLat").val(), 
+    longitude: $("#cityLng").val()
+  }
+
+  console.log(sendData);
+
+  $.post("/api/hostdata", sendData)
+    .done(function(data) {
+        let slug = data.slug;
+        $("#link").text(`${window.location.origin}/${slug}/survey`);
+        $("#link").attr("href", `${window.location.origin}/${slug}/survey`);
+
+        $("#svg_form_time rect").css("fill", active_color);
+        $("#svg_form_time circle").css("fill", active_color);
+        child++;
+        showNew();
+    })
+}
+
+function showNew() {
   var circle_child = child + 1;
   $("#svg_form_time rect:nth-of-type(n + " + child + ")").css(
     "fill",
@@ -83,7 +203,7 @@ $(".button").click(function () {
   var currentSection = $("section:nth-of-type(" + child + ")");
   currentSection.fadeIn();
   currentSection.css('transform','translateX(0)');
- currentSection.prevAll('section').css('transform','translateX(-100px)');
+  currentSection.prevAll('section').css('transform','translateX(-100px)');
   currentSection.nextAll('section').css('transform','translateX(100px)');
   $('section').not(currentSection).hide();
-});
+}

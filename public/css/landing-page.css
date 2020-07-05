@@ -3,9 +3,10 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
  */
+ @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
 body {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html, body {
@@ -54,7 +55,7 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 6rem;
+    padding-top: 3rem;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -131,17 +132,30 @@ header.masthead h1 {
 }
 
 footer.footer {
+  position: absolute;
+  background-color: transparent;
+  color: white;
+  width: 100%;
+  bottom: 0;
+  left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .owlmotherfucker {
   position: relative;
-  width: 75px;
-  left: -15px;
+  width: 90px;
+  /* left: -15px; */
 }
 
 .titletext {
-  letter-spacing: 25px;
-  font-weight: 500
+  font-family: 'Amatic SC', cursive;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+.pretty {
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 20px;
 }

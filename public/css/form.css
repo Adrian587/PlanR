@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
-#svg_form_time {
+.form #svg_form_time {
   height: 15px;
   max-width: 80%;
   margin: 0 auto;
   display: block;
 }
 
-#svg_form_time circle,
-#svg_form_time rect {
+.form #svg_form_time circle,
+.form #svg_form_time rect {
   fill: white;
 }
 
-.button {
+.form .button {
   background: rgb(237, 40, 70);
   border-radius: 100px;
   padding: 15px 25px;
@@ -25,10 +26,6 @@ body {
   font-weight: bold;
   color: white;
   cursor: pointer;
-}
-
-.disabled {
-  display:none;
 }
 
 section {
@@ -42,7 +39,7 @@ section {
   transition:transform 0.2s ease-in-out;
 }
 
-input {
+.form input {
   width: 100%;
   margin: 5px 0px;
   display: inline-block;
@@ -55,9 +52,12 @@ input {
   background:white;
 }
 
-p {
-  margin: 5px;
-  text-align: left;
-  font-weight: bold;
-  font-size: 0.9em;
+.form input:focus {
+  outline: none;
 }
+
+.form p {
+  margin-bottom: 5px;
+  text-align: left;
+}
+

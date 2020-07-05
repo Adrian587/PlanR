@@ -2,39 +2,34 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Landing Page - Start Bootstrap Theme</title>
+  <title>PlanR: Vacations Made Easy</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-
-  
-
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/landing-page.css" rel="stylesheet">
-  <link href="css/form.css" rel="stylesheet">
+  <link href="/css/landing-page.css" rel="stylesheet">
+  <link href="/css/form.css" rel="stylesheet">
 
 </head>
 
-<body>
-  <nav class="navbar navbar-light bg-light static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">PlanR. Vacations Made Easy</a>
-    </div>
-  </nav>
 
   <!-- Masthead -->
   <header class="masthead text-center">
@@ -43,44 +38,38 @@
       <div class="row">
         <div class="col-xl-9 mx-auto">
           <img src="/images/owl.png" class="owlmotherfucker">
-          <h1 class="titletext text-white">PlanR</h1>
+          <h1 class="titletext text-white" style="font-size: 50px; font-weight: 700; letter-spacing: 8px;">PlanR</h1>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto form">
           <section>
             <p>Enter your vacation location:</p>
-            <input type="text" placeholder="Where to?" />
+            <input id="location" type="text" size="50" placeholder="Where to?" autocomplete="on" runat="server"/>  
+            <input type="hidden" id="city2" name="city2" />
+            <input type="hidden" id="cityLat" name="cityLat"/>
+            <input type="hidden" id="cityLng" name="cityLng"/>  
+            <p>Enter your email address:</p>
+            <input type="text" id='email' placeholder="Email address to?"/>
           </section>
 
           <section>
             <p>General Travel Information</p>
-            <input type="text" name="daterange" value="07/04/2020 - 07/4/2020" />
-            <input type="text" placeholder="Number of People Going" />
-            <input type="text" placeholder="Approximate Total Group Budget (USD)" />
+            <input id="daterange" type="text" name="daterange" value="07/04/2020 - 07/4/2020" />
+            <input id="groupSize" type="text" placeholder="Number of People Going" />
+            <input id="groupBudget" type="text" placeholder="Approximate Total Group Budget (USD)" />
           </section>
 
-          <section>
+          <section> 
             <p>Thanks for filling out the information! </p>
-            <p>Your personalized link: ... </p>
+            <p class="lead">Your Survey link: <a href="" id="link"></a> </p>
             <p>Share this quick 1 minute survey link with the rest of your travel buddies to plan the perfect trip for everyone going!</p>
             <p>Then click next and continue with the survey yourself. </p>
-          </section>
-
-          <section>
-            <p>Application</p>
-            <input type="text" placeholder="Preferred entrance date" />
-            <input type="text" placeholder="Number of people" />
-          </section>
-
-          <section>
-            <p>General condtitions</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </section>
 
           <div id="svg_wrap"></div>
 
           <div class="button" id="prev">&larr; Previous</div>
           <div class="button" id="next">Next &rarr;</div>
-          <div class="button" id="submit">Agree and send application</div>
+          <div class="button" id="submit">Submit</div>
         </div>
       </div>
     </div>
@@ -90,24 +79,36 @@
   <footer class="footer bg-light">
     <div class="container">
       <div class="row">
-          <p class="text-muted small mb-4 mb-lg-0">&copy; PlanR 2020. Made by Liang Liu, Anindya De, Adrian Lee, Andrew Han, Amogh Joshi </p>
+        <p class="text-muted small mb-4 mb-lg-0">&copy;PlanR 2020. Made by Liang Liu, Anindya De, Adrian Lee, Andrew Han, Amogh Joshi. </p>
       </div>
     </div>
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
-  <script src="js/form.js"></script>
-  <script src="js/custom.js"></script>
+  <script src="/js/form.js"></script>
+  <script src="/js/custom.js"></script>
     
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
-</body>
-
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMm7mFoUiBLqbrf4Oo2NTAj7Q3S4yXNF8&libraries=places"></script>
+  <script>
+         function initialize() {
+         var input = document.getElementById('location');
+         var autocomplete = new google.maps.places.Autocomplete(input);
+         google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('city2').value = place.name; 
+            document.getElementById('cityLat').value = place.geometry.location.lat(); 
+            document.getElementById('cityLng').value = place.geometry.location.lng(); 
+           // alert("This function is working!"); 
+           // alert(place.name);
+           // alert(document.getElementById('cityLat').value);
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize); 
+  </script>
 </html> 

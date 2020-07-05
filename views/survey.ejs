@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>PlanR: Vacations Made Easy</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+  
+
+  <!-- Custom fonts for this template -->
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/landing-page.css" rel="stylesheet">
+  <link href="/css/form.css" rel="stylesheet">
+  <link href="/css/checkbox.css" rel="stylesheet">
+
+</head>
+
+
+  <!-- Masthead -->
+  <header class="masthead text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <img src="/images/owl.png" class="owlmotherfucker">
+          <h1 class="titletext text-white" style="font-size: 50px; font-weight: 700; letter-spacing: 8px;">PlanR</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto form">
+          <section>
+            <p>Hey! </p>
+            <p>Welcome to the individualised Survey! We will be asking some questions to help determine the ideal vacation for you!</p>
+          </section>
+          
+          <section>
+            <p>What is your age?</p>
+            <input type="text" id="ageSelector" placeholder="Age"/>
+          </section>
+
+          <section class="restrictions">
+            <p>Do you have any dietary restrctions we should know about?</p>
+            <div class="text-left">
+            <div class="pretty p-icon p-jelly p-round p-bigger">
+                <input id="vegetarian" type="checkbox" />
+                <div class="state p-info">
+                    <i class="icon fa fa-check"></i>
+                    <label>Vegetarian</label>
+                </div>
+            </div>
+            <div class="pretty p-icon p-jelly p-round p-bigger">
+                <input id="vegan" type="checkbox" />
+                <div class="state p-info">
+                    <i class="icon fa fa-check"></i>
+                    <label>Vegan</label>
+                </div>
+            </div>
+            <div class="pretty p-icon p-jelly p-round p-bigger">
+                <input id="lactoseIntolerance" type="checkbox" />
+                <div class="state p-info">
+                    <i class="icon fa fa-check"></i>
+                    <label>Lactose Intolerance</label>
+                </div>
+            </div>
+            <div class="pretty p-icon p-jelly p-round p-bigger">
+                <input id="noPork" type="checkbox" />
+                <div class="state p-info">
+                    <i class="icon fa fa-check"></i>
+                    <label>No Pork</label>
+                </div>
+            </div>
+            <div class="pretty p-icon p-jelly p-round p-bigger">
+                <input id="noBeef" type="checkbox" />
+                <div class="state p-info">
+                    <i class="icon fa fa-check"></i>
+                    <label>No Beef</label>
+                </div>
+            </div>
+            <div>
+                <input type="text" id="otherRestrictions" placeholder="Other">
+                <label for="otherRestrictions"></label>
+            </div>
+        </div>
+          </section>
+
+          <section class="food">
+            <p>What are your preferences for food?</p>
+            <div class="text-left">
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="asian" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Asian</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="italian" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Italian</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="steakhouse" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Steakhouse</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="indian" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Indian</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="american" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>American</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="burgers" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Burgers</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="pho" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Pho</label>
+                    </div>
+                </div>
+                <div class="pretty p-icon p-jelly p-round p-bigger">
+                    <input id="ramen" type="checkbox" />
+                    <div class="state p-info">
+                        <i class="icon fa fa-check"></i>
+                        <label>Ramen</label>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" size="10" id="otherPreferances" placeholder="Other">
+                    <label for="otherPreferences"></label>
+                </div>
+            </div>
+            </section>
+
+          
+            <section class="activities">
+                <p>What are some attractions you want to visit?</p>
+                <div class="text-left">
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="amusementPark" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Amusement Park</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="waterPark" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Water Parks</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="Museums" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Museums</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="dining" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Fine Dining</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="historical" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Historical Area</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="sports" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Sports</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="hiking" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Hiking</label>
+                        </div>
+                    </div>
+                    <div class="pretty p-icon p-jelly p-round p-bigger">
+                        <input id="nightLife" type="checkbox" />
+                        <div class="state p-info">
+                            <i class="icon fa fa-check"></i>
+                            <label>Night Life</label>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="text" id="otherToDos" placeholder="Other">
+                        <label for="otherToDos"></label>
+                    </div>
+                </div>
+                </section>
+          <section> 
+            <strong style="text-align: left;">Thanks for finishing the survey!</strong>
+            <p style="text-align: left;"> We will email you the perfect itenerary once everyone else in your group is finished filling out the form!</p>
+          </section>
+
+          <div id="svg_wrap"></div>
+
+          <div class="button" id="prev">&larr; Previous</div>
+          <div class="button" id="next">Next &rarr;</div>
+          <div class="button" id="submit">Submit</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+          <p class="text-muted small mb-4 mb-lg-0">&copy;PlanR 2020. Made by Liang Liu, Anindya De, Adrian Lee, Andrew Han, Amogh Joshi </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.slug = "<%= slug %>";
+  </script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+  <script src="/js/form.js"></script>
+  <script src="/js/custom.js"></script>
+    
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMm7mFoUiBLqbrf4Oo2NTAj7Q3S4yXNF8&libraries=places"></script>
+</body>
+</html>
