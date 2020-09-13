@@ -15,7 +15,7 @@
     "http-errors": "~1.6.3",
     "moment": "^2.27.0",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
     "@fortawesome/fontawesome-free": "^5.13.1",
     "@fullcalendar/bootstrap": "^5.0.0",
