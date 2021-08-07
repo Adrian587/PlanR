@@ -4,7 +4,6 @@ class Planr {
 
   constructor() {
     this.itineraries = {
-      "ilikecock": new Aggregator(),
       "test": new Aggregator()
     }; // dictionary key:value = slug: Aggregator
 
@@ -59,7 +58,7 @@ class Planr {
    */
   sendSurveyData(slug, surveyData) {
     console.log("sending survey data")
-    this.getAggregator(slug).addSurveyData(surveyData); 
+    this.getAggregator(slug).addSurveyData(surveyData);
   }
 
   /**
@@ -81,11 +80,11 @@ class Planr {
    *   makeid(5) => Ad87b
    */
   makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
   }
@@ -100,4 +99,4 @@ class Planr {
   }
 }
 
-module.exports = Planr; 
+module.exports = Planr;
